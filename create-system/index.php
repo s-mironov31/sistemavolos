@@ -89,8 +89,8 @@ if($_GET['example'])
 		<div class="m-p-element current" dynamic_change_progress="LENGTH">длина</div>
 		<div class="m-p-element" dynamic_change_progress="params">параметры</div>
 		<div class="m-p-element" dynamic_change_progress="hair-color">цвет</div>
-		<div class="m-p-element" dynamic_change_progress="grey-haired">седые*</div>
-		<div class="m-p-element" dynamic_change_progress="wave">завивка</div>
+		<!--<div class="m-p-element" dynamic_change_progress="grey-haired">седые*</div>-->
+		<!--<div class="m-p-element" dynamic_change_progress="wave">завивка</div>-->
 		<div class="m-p-element" dynamic_change_progress="sixth">кожа</div>
 		<div class="m-p-element" dynamic_change_progress="VALUME">объем</div>
 		<!--<div class="m-p-element" dynamic_change_progress="base">основа</div>-->
@@ -201,6 +201,37 @@ if($_GET['example'])
 		<p class="descrr third">Наценка за светлые волосы + 10% (цвета с 7 по 27S)</p>
 		<div class="container radios-customizes slider-for">
 			<div class="radios circled" dynamic_change="hair-color">
+				<div class="horiz_slider horiz_slider_custom horiz_slider_color">
+				<div class="dynamic_block">
+				<?
+				$arItems = array(10, 10, 9, 9);
+				for($i=0; $i<count($arItems); $i++)
+				{
+					$arTmp = array_slice($arColors, array_sum(array_slice($arItems, 0, $i)), $arItems[$i]);
+					echo '<div class="item item_'.$arItems[$i].'">';
+					foreach($arTmp as $k=>$v)
+					{
+						if($arProps['COLOR']==$v['ID'])
+						{
+							$APPLICATION->SetPageProperty('clider_color_num', $i);
+						}
+						echo '<div class="radio-wrap">
+									<p class="txt"><!--Кодировка цвета -->'.$v['NAME'].'</p>
+									<input type="radio" class="niceRadio" name="COLOR" value="'.$v['ID'].'" data-value="'.htmlspecialchars($v['NAME']).'" '.(($k==0 && $i==0) ? 'validate="not_empty" title="Цвет"' : '').' '.($arProps['COLOR']==$v['ID'] ? 'checked' : '').' /> 
+								</div>';
+					}
+					echo '<div class="shareimg"><img src="/images/color'.($i+1).'.jpg" width="814px" height="558px" alt="" title=""></div>';
+					echo '</div>';
+				}
+				?>
+				<div class="clear"></div>
+				</div>
+				</div>
+			</div>
+		</div>
+		<?/*?>
+		<div class="container radios-customizes slider-for">
+			<div class="radios circled" dynamic_change="hair-color">
 				<?
 				echo '<div class="horiz_slider horiz_slider_color">';
 				if(count($arColors) > 10)
@@ -231,32 +262,11 @@ if($_GET['example'])
 					echo '<div class="shareimg"><img src="/images/color'.($i+1).'.jpg" width="814px" height="558px" alt="" title=""></div>';
 					echo '</div>';
 				}
-				/*$i = 0;
-				while(count($arColors) > $i)
-				{
-					$arTmp = array_slice($arColors, $i, 1);
-					echo '<div class="item">';
-					foreach($arTmp as $k=>$v)
-					{
-						if($arProps['COLOR']==$v['ID'])
-						{
-							$APPLICATION->SetPageProperty('clider_color_num', $i/1);
-						}
-						echo '<div class="radio-wrap">
-									<p class="txt"><!--Кодировка цвета -->'.$v['NAME'].'</p>
-									<input type="radio" class="niceRadio" name="COLOR" value="'.$v['ID'].'" data-value="'.htmlspecialchars($v['NAME']).'" '.(($k==0 && $i==0) ? 'validate="not_empty" title="Цвет"' : '').' '.($arProps['COLOR']==$v['ID'] ? 'checked' : '').' /> 
-									<div class="img-wrap">
-										<table class="vert-aligned-table"><tr><td><img src="'.$v['PREVIEW_PICTURE']['SRC'].'" height="214px" alt="'.htmlspecialchars($v['NAME']).'" title="'.htmlspecialchars($v['NAME']).'"></td></tr></table>
-									</div>
-								</div>';
-					}
-					echo '</div>';
-					$i += 1;
-				}*/
 				echo '</div></div></div>';
 				?>
 			</div>
 		</div>
+		<?*/?>
 		<?/*?>
 		<div class="container radios-customizes slider-for">
 			<div id="slides" class="s-slides radios circled" dynamic_change="hair-color">				
@@ -293,6 +303,7 @@ if($_GET['example'])
 		<div class="clear oled-marg"></div>
 		
 		<!--4-->
+		<?/*?>
 		<p class="title-24">4. Седые волосы*</p>
 		<div class="i-help">i
 			<div class="i-helper-text"> 
@@ -352,6 +363,7 @@ if($_GET['example'])
 				?>
 			</div>
 		</div>
+		<?*/?>
 		<?/*?>
 		<div class="container radios-customizes slider-for">
 			<div id="slides2" class="s-slides radios circled" dynamic_change="grey-haired">
@@ -378,7 +390,8 @@ if($_GET['example'])
 			</div>
 		</div>
 		<?*/?>
-
+		
+		<?/*?>
 		<div class="clear"></div>
 		<section class="lbbl">
 			<span class="pink floated">Выбранный цвет</span>
@@ -386,8 +399,10 @@ if($_GET['example'])
 			<span class="pink-label dynamic_change_here" dynamic_change_here="grey-haired">не выбран</span>
 		</section>
 		<div class="clear oled-marg"></div>
+		<?*/?>
 		
 		<!--5-->
+		<?/*?>
 		<p class="title-24">5. Выбираем завивку/волнистость</p>
 		<div class="i-help">i
 			<div class="i-helper-text"> 
@@ -439,9 +454,9 @@ if($_GET['example'])
 			<span class="pink-label dynamic_change_here" dynamic_change_here="wave">не выбрана</span>
 		</section>
 		<div class="clear oled-marg"></div>
-		
+		<?*/?>
 		<!--6-->
-		<p class="title-24">6. Нужна ли шелковая вставка?</p>
+		<p class="title-24">4. Нужна ли шелковая вставка?</p>
 		<div class="i-help">i
 			<div class="i-helper-text"> 
 				<div class="lbl">i</div>
@@ -506,7 +521,7 @@ if($_GET['example'])
 				</div>
 			</div>
 		</div>
-		<p class="title-24">7. Выбираем объем:</p>
+		<p class="title-24">5. Выбираем объем:</p>
 		
 		<!--<div class="sli"></div>-->
 		<iframe src="<?=SITE_TEMPLATE_PATH?>/tmp/2.php?VOLUME=<?=$arProps['VOLUME']?>" class="slider-range" scrolling="no"></iframe>
@@ -561,7 +576,7 @@ if($_GET['example'])
 		<div class="clear oled-marg eighth"></div>-->
 		
 		<!--9-->
-		<p class="title-24">8. Вы можете загрузить фото</p>
+		<p class="title-24">6. Вы можете загрузить фото</p>
 		<div class="i-help">i
 			<div class="i-helper-text"> 
 				<div class="lbl">i</div>

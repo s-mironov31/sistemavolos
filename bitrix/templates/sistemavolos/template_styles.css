@@ -2707,3 +2707,16 @@ left: 80px;
 	font-size: 24px;
 	color: #c9b9a0;
 }
+
+/* ------------ CUSTOM SlideJS -------------*/
+.horiz_slider.horiz_slider_custom {
+	height: auto;
+}
+.horiz_slider.horiz_slider_custom .dynamic_block .item {
+	float: none;
+}
+.horiz_slider.horiz_slider_custom .dynamic_block {
+    position: relative;
+    width: 10000px;
+    width: auto;
+}
