@@ -1,0 +1,94 @@
+.container {
+	//width:780px;
+	//margin:40px auto;
+	position:relative;
+}
+
+.s-slides {
+	position:relative;
+}
+
+.s-slides .slidesContainer {
+	background:#fff;
+	//border:8px solid #fff;
+	//margin-left:-8px;
+	//box-shadow: 0 2.5px 5px rgba(0,0,0,.1);
+	width: 840px !important;
+	height:320px !important;
+	margin: 0 auto;
+}
+
+/*
+	Next/prev buttons
+*/
+.slidesControl{
+	width:100% !important;
+}
+.s-slides .slidesNext,.s-slides .slidesPrevious {
+	position:absolute;
+	top:108px;
+	left:0px;
+	height:0;
+	padding-top:37px;
+	display:block;
+	//z-index:101;
+	overflow:hidden;
+	background:url(slider-arrow-l.jpg) no-repeat 0 0;
+	
+	width: 26px;
+	//height: 37px;
+	//top: 33%;
+	//float: left;
+	cursor: pointer;
+}
+
+.s-slides .slidesNext {
+	left:920px;
+	background:url(slider-arrow-r.jpg) no-repeat 0 0;
+}
+
+/*
+	Pagination
+*/
+
+.slidesPagination {
+	margin:10px 0 0;
+	float:right;
+	display:none;
+}
+
+.slidesPagination li {
+	float:left;
+	margin:0 1px;
+	list-style:none;
+}
+
+.slidesPagination li a {
+	display:block;
+	width:14px;
+	height:0;
+	padding-top:14px;
+	background-image:url(../img/pagination.png);
+	background-position:0 0;
+	overflow:hidden;
+}
+
+.slidesPagination li.slidesCurrent a {
+	background-position:0 -14px;
+}
+
+.current_slide {
+	font:bold 10px/1.33 sans-serif;
+	float:left;
+	margin-top:12px;
+}
+
+.controls {
+	display:block;
+	margin-top:12px;
+	float:left;
+	color:#333;
+	font:bold 10px/1.33 sans-serif;
+	margin-right:10px;
+	display:none;
+}
