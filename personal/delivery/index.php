@@ -157,6 +157,7 @@ while($ar_dtype = $db_dtype->Fetch())
 	<div class="radios-customizes rdelivery">
 			<div class="radios circled cust" dynamic_change="delivery">
 <?
+
 foreach($arDelivery as $k=>$v)
 {
 	$v['LOGOTIP'] = CFile::GetFileArray($v['LOGOTIP']);
@@ -170,7 +171,13 @@ foreach($arDelivery as $k=>$v)
 	{
 		echo '<label for="delivery'.$v['ID'].'" class="cash">'.$v['NAME'].'</label>';
 	}
-	echo '<input type="radio" class="niceRadio" name="ORDER[DELIVERY_ID]" id="delivery'.$v['ID'].'" value="'.$v['ID'].'" data-value="'.intval($v['PRICE']).'" '.($k==0 ? 'validate="not_empty"' : '').' title="Способ доставки" '.($k==0 ? 'checked' : '').'>
+	echo '<input type="radio" class="niceRadio" name="ORDER[DELIVERY_ID]" id="delivery'.$v['ID'].'" value="'.$v['ID'].'" data-value="'.
+	intval($v['PRICE']).'" data-description="'.
+	(($v['ID'] == 1) ? 'При заказе от 2000 руб. доставка '.$v['NAME'].' до пункта выдачи бесплатно!' : 
+		($v['ID'] == 2) ? 'При заказе от 4000 руб. доставка курьерской службой '.$v['NAME'].' до двери бесплатно!' :
+			($v['ID'] == 3) ? 'При заказе от 2000 руб. доставка '.$v['NAME'].' до пункта выдачи бесплатно!' :
+				($v['ID'] == 4) ? 'При заказе от 2000 руб. доставка '.$v['NAME'].' до пункта выдачи бесплатно!' : '').'" '.
+	($k==0 ? 'validate="not_empty"' : '').' title="Способ доставки" '.($k==0 ? 'checked' : '').'>
 		  </div>
 			'.($v['DESCRIPTION'] ? '<div class="info">'.$v['DESCRIPTION'].'</div>' : '').'
 		  </div>';

@@ -1106,6 +1106,20 @@ div.multi-progress{
 	left:17px;
 	top:14px;
 }
+.total .after_payment {
+	display:block;
+	position:absolute;
+	width:170px;
+	height:39px;
+	line-height:39px;
+	background-color:#00B3BE;
+	border-radius:20px;
+	color:#ffffff;
+	font-size:19px;
+	text-align:center;
+	left:322px;
+	top:14px;
+}
 .total div{
 	float:left;
 }

@@ -54,6 +54,9 @@ foreach($arResult['ORDERS'] as $k0=>$v0)
 		?>
 		<div class="total-line"></div>
 		<div class="total">
+			<?if ($v0['ORDER']['PAYED'] === 'N' && $v0['ORDER']['PAY_SYSTEM_ID'] != 6 && $v0['ORDER']['PAY_SYSTEM_ID'] != 7):?>
+				<a href="/personal/order-success/?ORDER_ID=<?=$v0['ORDER']['ID']?>" class="after_payment">Оплатить</a>
+			<?endif;?>
 			<a href="javascript:void(0)" onclick="OList.Repeat(<?=$v0['ORDER']['ID']?>)" class="repeat">Повторить заказ</a>
 			<div class="beige">всего </div>
 			<div>
